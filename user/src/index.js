@@ -9,7 +9,7 @@ import {
   listUsers,
   searchUsers,
   followUser,
-  loginUser,
+  verifyUser,
 } from "./controllers/user.controller.js";
 
 import "dotenv/config";
@@ -23,7 +23,7 @@ app.use(
   }),
 );
 
-app.post("/login", loginUser);
+app.post("/verify", verifyUser);
 app.post("/", createUser);
 app.put("/:id", isAuthenticated, updateUser);
 app.delete("/:id", isAuthenticated, deleteUser);

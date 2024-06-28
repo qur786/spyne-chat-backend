@@ -5,10 +5,13 @@ import { TokenBlacklistModel } from "../models/token.model.js";
 export async function login(req, res) {
   try {
     const { email, password } = req.body;
-    const response = await axios.post(`${process.env.USER_SERVICE_URL}/login`, {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      `${process.env.USER_SERVICE_URL}/verify`,
+      {
+        email,
+        password,
+      },
+    );
 
     if (response.data && response.data.user) {
       const token = jwt.sign(
@@ -39,7 +42,7 @@ export async function checkAuth(req, res) {
   res.send(req.user);
 }
 
-export async function register(req, res) {
+export async function signUp(req, res) {
   try {
     const response = await axios.post(
       `${process.env.USER_SERVICE_URL}`,

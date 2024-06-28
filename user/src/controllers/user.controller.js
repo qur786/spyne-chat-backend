@@ -10,7 +10,7 @@ export async function createUser(req, res) {
   }
 }
 
-export async function loginUser(req, res) {
+export async function verifyUser(req, res) {
   try {
     const user = await UserModel.findByCredentials(
       req.body.email,

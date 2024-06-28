@@ -3,7 +3,7 @@ import {
   login,
   logout,
   checkAuth,
-  register,
+  signUp,
 } from "./controllers/auth.controller.js";
 import { isAuthenticated } from "./middleware/auth.middleware.js";
 import mongoose from "mongoose";
@@ -22,7 +22,7 @@ app.use(
 app.post("/login", login);
 app.post("/logout", isAuthenticated, logout);
 app.get("/check-auth", isAuthenticated, checkAuth);
-app.post("/register", register);
+app.post("/sign-up", signUp);
 
 mongoose
   .connect(process.env.MONGO_URL ?? "")
