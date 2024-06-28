@@ -1,19 +1,9 @@
-import jwt from "jsonwebtoken";
+import axios from "axios";
 
-export function isAuthenticated(req, res, next) {
-  // Check for the presence of an authorization header
-  const authHeader = req.headers.authorization;
-  if (!authHeader) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
-
-  // Extract the token from the header
-  const token = authHeader.split(" ")[1];
-
+export async function isAuthenticated(req, res, next) {
   try {
-    // Verify the token using the JWT library and the secret key
-    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decodedToken;
+    const user = await axios(`${process.env.AUTH_SERVICE_URL}/check-auth`);
+    req.user = user;
     next();
   } catch (err) {
     return res.status(401).json({ message: "Unauthorized" });
