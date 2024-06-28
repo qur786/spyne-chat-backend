@@ -1,5 +1,8 @@
 {
   "name": "spyne-techincal-assessment",
   "version": "1.0.0",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  }
 }

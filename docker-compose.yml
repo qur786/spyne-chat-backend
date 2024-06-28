@@ -10,6 +10,16 @@ services:
       - ./user/.env
     networks:
       - spyne
+
+  auth:
+    build: ./auth
+    stdin_open: true
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./auth/.env
+    networks:
+      - spyne
   
   api-gateway:
     build: ./api-gateway

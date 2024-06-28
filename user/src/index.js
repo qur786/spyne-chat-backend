@@ -1,7 +1,7 @@
 import express, { json, urlencoded } from "express";
 import { isAuthenticated } from "./middlewares/auth.middleware.js";
 import mongoose from "mongoose";
-import { createUser, updateUser, deleteUser, getUser, listUsers, searchUsers, followUser } from "./controllers/user.controller.js";
+import { createUser, updateUser, deleteUser, getUser, listUsers, searchUsers, followUser, loginUser } from "./controllers/user.controller.js";
 
 import 'dotenv/config';
 
@@ -12,6 +12,7 @@ app.use(urlencoded({
   extended: false
 }));
 
+app.post('/login', loginUser);
 app.post('/', createUser);
 app.put('/:id', isAuthenticated, updateUser);
 app.delete('/:id', isAuthenticated, deleteUser);

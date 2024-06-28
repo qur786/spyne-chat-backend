@@ -10,6 +10,15 @@ export async function createUser(req, res) {
   }
 };
 
+export async function loginUser (req, res) {
+  try {
+    const user = await UserModel.findByCredentials(req.body.email, req.body.password);
+    res.send({ user });
+  } catch (error) {
+    res.status(400).send({ error: 'Login failed' });
+  }
+};
+
 export async function updateUser(req, res) {
   try {
     const user = await UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
