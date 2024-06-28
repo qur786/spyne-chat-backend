@@ -4,7 +4,14 @@ import { TokenBlacklistModel } from "../models/token.model.js";
 
 export async function isAuthenticated(req, res, next) {
   try {
-    const token = req.header("Authorization").replace("Bearer ", "");
+    // Check for the presence of an authorization header
+    const authHeader = req.headers.authorization;
+    if (!authHeader) {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    // Extract the token from the header
+    const token = authHeader.split(" ")[1];
 
     // Check if the token is blacklisted
     const blacklistedToken = await TokenBlacklistModel.findOne({ token });
