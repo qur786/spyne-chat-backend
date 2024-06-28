@@ -58,14 +58,12 @@ export async function listUsers (_req, res) {
 export async function searchUsers(req, res) {
   try {
     const { q } = req.query;
-    console.log(q);
     const regex = new RegExp(q, 'i');
     const users = await UserModel.find({
         name: { $regex: regex }
     });
     res.send(users);
   } catch (error) {
-    console.log(error)
     res.status(400).send(error);
   }
 };
