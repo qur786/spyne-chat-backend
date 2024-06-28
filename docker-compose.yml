@@ -20,7 +20,7 @@ services:
       - ./auth/.env
     networks:
       - spyne
-  
+
   api-gateway:
     build: ./api-gateway
     stdin_open: true
