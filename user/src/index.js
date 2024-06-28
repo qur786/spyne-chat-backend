@@ -25,18 +25,16 @@ app.use(
 
 app.post("/verify", verifyUser);
 app.post("/", createUser);
-app.put("/:id", isAuthenticated, updateUser);
+app.patch("/:id", isAuthenticated, updateUser);
 app.delete("/:id", isAuthenticated, deleteUser);
 app.get("/search", searchUsers); // This should come before '/:id'
+app.get("/list", listUsers); // This should come before '/:id'
 app.get("/:id", getUser);
-app.get("/", listUsers);
 app.post("/:id/follow", isAuthenticated, followUser);
 
 mongoose
   .connect(process.env.MONGO_URL ?? "")
   .then(() => {
-    console.log("Connected to database");
-
     // Start the server
     const port = process.env.PORT ?? 3001;
     app.listen(port, () => {

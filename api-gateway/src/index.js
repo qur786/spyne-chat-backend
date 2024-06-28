@@ -14,6 +14,11 @@ app.use("/auth", (req, res) => {
   proxy.web(req, res, { target: "http://auth:3002" });
 });
 
+// Route requests to the auth service
+app.use("/post", (req, res) => {
+  proxy.web(req, res, { target: "http://post:3003" });
+});
+
 // Start the server
 const port = process.env.PORT ?? 3000;
 app.listen(port, () => {

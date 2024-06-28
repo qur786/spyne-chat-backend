@@ -23,7 +23,7 @@ export async function login(req, res) {
       res.status(401).send({ error: "Login failed" });
     }
   } catch (error) {
-    res.status(400).send(error);
+    res.status(400).send(error.response.data ?? "Some error occured.");
   }
 }
 

@@ -21,6 +21,16 @@ services:
     networks:
       - spyne
 
+  post:
+    build: ./post
+    stdin_open: true
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./post/.env
+    networks:
+      - spyne
+
   api-gateway:
     build: ./api-gateway
     stdin_open: true

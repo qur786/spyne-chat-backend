@@ -18,7 +18,7 @@ export async function verifyUser(req, res) {
     );
     res.send({ user });
   } catch (error) {
-    res.status(400).send({ error: "Login failed" });
+    res.status(400).send({ error: "Error on accessing user details." });
   }
 }
 

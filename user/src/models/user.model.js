@@ -23,13 +23,13 @@ UserSchema.pre("save", async function (next) {
 UserSchema.statics.findByCredentials = async (email, password) => {
   const user = await UserModel.findOne({ email });
   if (!user) {
-    throw new Error("Unable to login");
+    throw new Error("User not found.");
   }
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) {
-    throw new Error("Unable to login");
+    throw new Error("Either email or password is invalid.");
   }
-  return { ...user, password: "" };
+  return user;
 };
 
 export const UserModel = mongoose.model("User", UserSchema);

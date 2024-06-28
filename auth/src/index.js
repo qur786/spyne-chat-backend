@@ -27,8 +27,6 @@ app.post("/sign-up", signUp);
 mongoose
   .connect(process.env.MONGO_URL ?? "")
   .then(() => {
-    console.log("Connected to database");
-
     // Start the server
     const port = process.env.PORT ?? 3002;
     app.listen(port, () => {

@@ -5,7 +5,7 @@ import { TokenBlacklistModel } from "../models/token.model.js";
 export async function isAuthenticated(req, res, next) {
   try {
     // Check for the presence of an authorization header
-    const authHeader = req.headers.authorization;
+    const authHeader = req.header("Authorization");
     if (!authHeader) {
       return res.status(401).json({ message: "Unauthorized" });
     }
