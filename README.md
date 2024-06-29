@@ -1,4 +1,4 @@
-# Microservices Application
+# Spyne Chat Backend
 
 This project is a microservices-based application consisting of the following services:
 
@@ -31,7 +31,7 @@ This project is a microservices-based application consisting of the following se
 
    ```bash
    git clone https://github.com/qur786/spyne-chat-backend.git
-   cd your-repo-name
+   cd spyne-chat-backend
    ```
 
 2. **Set up environment variables**
