@@ -195,6 +195,8 @@ graph TD
 
 ## API Documentation
 
+- Postman collection containing all the request endpoint has been created and can be access via this [Public Postman Link](https://web.postman.co/workspace/My-Workspace~c43fc2ca-4773-43f3-8ed3-167a413647dc/collection/32835308-20b7ce1e-6968-40f4-9f93-8c826553440a).
+
 ### Endpoint Definitions and Request/Response Formats
 
 #### Auth Service
