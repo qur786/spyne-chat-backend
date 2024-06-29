@@ -27,7 +27,7 @@ graph TD
         User4[GET /user/:id]
         User5[GET /user/list]
         User6[GET /user/search]
-        User7[POST /users/follow/:id]
+        User7[POST /user/follow/:id]
         User8[POST /user/verify]
         UserSvc --> User1
         UserSvc --> User2
@@ -67,5 +67,10 @@ graph TD
         Discussion --> Discussion12
         Discussion --> Discussion13
     end
+
+    Discussion -->|Validates with| Auth
+    Discussion -->|Gets User Info from| UserSvc
+    UserSvc -->|Validates with| Auth
+
 
 ```
