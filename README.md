@@ -10,10 +10,10 @@ graph TD
     API -->|Forwards to| Discussion[Discussion Service]
 
     subgraph Auth Service
-        Auth1[POST /auth/signup]
+        Auth1[POST /auth/sign-up]
         Auth2[POST /auth/login]
         Auth3[POST /auth/logout]
-        Auth4[GET /auth/check]
+        Auth4[GET /auth/check-auth]
         Auth --> Auth1
         Auth --> Auth2
         Auth --> Auth3
@@ -21,34 +21,38 @@ graph TD
     end
 
     subgraph User Service
-        User1[POST /users]
-        User2[PATCH /users/:id]
-        User3[DELETE /users/:id]
-        User4[GET /users]
-        User5[GET /users/search]
-        User6[POST /users/follow/:id]
+        User1[POST /user]
+        User2[PATCH /user/:id]
+        User3[DELETE /user/:id]
+        User4[GET /user/:id]
+        User5[GET /user/list]
+        User6[GET /user/search]
+        User7[POST /users/follow/:id]
+        User8[POST /user/verify]
         UserSvc --> User1
         UserSvc --> User2
         UserSvc --> User3
         UserSvc --> User4
         UserSvc --> User5
         UserSvc --> User6
+        UserSvc --> User7
+        UserSvc --> User8
     end
 
     subgraph Discussion Service
-        Discussion1[POST /discussions]
-        Discussion2[PATCH /discussions/:id]
-        Discussion3[DELETE /discussions/:id]
-        Discussion4[GET /discussions/tags]
-        Discussion5[GET /discussions/search]
-        Discussion6[POST /discussions/:id/like]
-        Discussion7[POST /discussions/:id/comments]
-        Discussion8[POST /comments/:commentId/replies]
-        Discussion9[DELETE /comments/:commentId]
-        Discussion10[PATCH /comments/:commentId]
-        Discussion11[POST /discussions/:id/view]
-        Discussion12[GET /discussions/:id/viewCount]
-        Discussion13[POST /comments/:commentId/like]
+        Discussion1[POST /post/discussion]
+        Discussion2[PATCH /post/discussion/:id]
+        Discussion3[DELETE /post/discussion/:id]
+        Discussion4[GET /post/discussion/tags]
+        Discussion5[GET /post/discussion/search]
+        Discussion6[POST /post/discussion/:id/like]
+        Discussion7[POST /post/discussion/:id/comment]
+        Discussion8[POST /post/comment/:discussionId/:commentId/replies]
+        Discussion9[DELETE /post/comment/:commentId]
+        Discussion10[PATCH /post/comment/:commentId]
+        Discussion11[POST /post/discussion/:id/view]
+        Discussion12[GET /post/discussion/:id/viewCount]
+        Discussion13[POST /post/comment/:commentId/like]
         Discussion --> Discussion1
         Discussion --> Discussion2
         Discussion --> Discussion3
