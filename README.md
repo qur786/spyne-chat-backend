@@ -202,12 +202,12 @@ graph TD
 - **POST /auth/sign-up**
 
   - Request: `{ "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [] }`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
 
 - **POST /auth/login**
 
   - Request: `{ "email": "user@example.com", "password": "password" }`
-  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }, "token": "jwt-token" }`
+  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }, "token": "jwt-token" }`
 
 - **POST /auth/logout**
 
@@ -216,48 +216,48 @@ graph TD
 
 - **GET /auth/check-auth**
   - Request: `{}`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
 
 #### User Service
 
 - **POST /user**
 
   - Request: `{ "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [] }`
-  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
+  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
 
 - **PATCH /user/:id**
 
   - Request: `{ "username": "newuser" }`
-  - Response: `{ "user": { "_id": "user-id", "name": "newuser", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
+  - Response: `{ "user": { "_id": "user-id", "name": "newuser", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
 
 - **DELETE /user/:id**
 
   - Request: `{}`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
 
 - **GET /user/:id**
 
   - Request: `{}`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }s`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }s`
 
 - **GET /user/list**
 
   - Request: `{}`
-  - Response: `[{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }]`
+  - Response: `[{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }]`
 
 - **GET /user/search**
 
   - Request: `{ "query": "username" }`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
 
 - **POST /users/follow/:id**
 
   - Request: `{}`
-  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": ["new-user"], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
+  - Response: `{ "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": ["new-user"], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" }`
 
 - **POST /user/verify**
   - Request: `{ "email": "user@example.com", "token": "verification-token" }`
-  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
+  - Response: `{ "user": { "_id": "user-id", "name": "user", "mobile": "1234567890", "email": "user@example.com", "password": "hashed-password", "followers": [], createdAt: "2022-02-26T16:37:48.244Z", updatedAt: "2022-02-26T16:37:48.244Z" } }`
 
 #### Discussion Service
 
