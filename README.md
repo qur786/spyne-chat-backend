@@ -35,7 +35,7 @@ This project is a microservices-based application consisting of the following se
    ```
 
 2. **Set up environment variables**
-   Create a `.env` file for each service (`user/.env`, `auth/.env`, `post/.env`) with the necessary environment variables. Credentials are [uploaded to this file](https://drive.google.com/file/d/1S3cBiuG3p1gpsMZsB9ow98HjAvooatKc/view?usp=drive_link), please download the file and create the necessary `.env` files in the respective folders as specified in the uploaded file.
+   Create a `.env` file for each service (`user/.env`, `auth/.env`, `post/.env`) with the necessary environment variables. Credentials are [uploaded to this file](https://drive.google.com/file/d/1S3cBiuG3p1gpsMZsB9ow98HjAvooatKc/view?usp=drive_link), please download the file and create the necessary `.env` files in the respective folders as specified in the uploaded file and copy the values.
 
 3. **Build and run the services using Docker Compose**
 
